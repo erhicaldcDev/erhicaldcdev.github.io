@@ -1,293 +1,461 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>erhicaldcDev Projects</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>erhicaldcDev — Software Developer &amp; Systems Enthusiast</title>
+  <meta name="description" content="Portfolio of erhicaldc: Botify, a visual Discord bot maker; nxpm, a C11 package manager for Linux From Scratch; and fckingGoodOptimizer. Rendered with a hand-written WebGL particle engine.">
+  <meta name="theme-color" content="#04050c">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://erhicaldcdev.github.io/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="icon" type="image/svg+xml" href="https://icongr.am/feather/package.svg?color=7c3aed">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="erhicaldcDev">
+  <meta property="og:title" content="erhicaldcDev — Software Developer & Systems Enthusiast">
+  <meta property="og:description" content="Botify, nxpm and fckingGoodOptimizer, rendered live by a hand-written WebGL particle engine.">
+  <meta property="og:url" content="https://erhicaldcdev.github.io/">
+  <meta property="og:image" content="https://erhicaldcdev.github.io/assets/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
 
-    <style>
-        :root{
-            --violet-1: 120 50% 55%;
-            --violet-2: 260 60% 52%;
-            --accent: #7c3aed;
-        }
-        html,body,#app { height:100%; }
-        body{
-            font-family: "Inter", "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-            background: #0b0f1a;
-            color: #e6eef8;
-            -webkit-font-smoothing:antialiased;
-            -moz-osx-font-smoothing:grayscale;
-        }
-        .bg-anim {
-            position: fixed;
-            inset: 0;
-            z-index: 0;
-            overflow: hidden;
-        }
-        .bg-anim::before{
-            content: "";
-            position: absolute;
-            inset: -20%;
-            background: linear-gradient(120deg,
-            rgba(124,58,237,0.18) 0%,
-            rgba(59,130,246,0.14) 25%,
-            rgba(99,102,241,0.12) 50%,
-            rgba(139,92,246,0.10) 75%,
-            rgba(59,130,246,0.08) 100%);
-            filter: blur(36px) saturate(120%);
-            transform: translateZ(0);
-            animation: gradientShift 18s linear infinite;
-            mix-blend-mode: screen;
-        }
-        @keyframes gradientShift {
-            0% { transform: translate(-5%, -5%) scale(1.05) rotate(0deg); }
-            50% { transform: translate(5%, 5%) scale(1.12) rotate(3deg); }
-            100% { transform: translate(-5%, -5%) scale(1.05) rotate(0deg); }
-        }
-        .glass {
-            backdrop-filter: blur(6px) saturate(120%);
-            background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-            border: 1px solid rgba(255,255,255,0.04);
-        }
-        .brand {
-            letter-spacing: -0.02em;
-            font-weight: 700;
-        }
-        .card {
-            transition: transform .28s cubic-bezier(.2,.9,.2,1), box-shadow .28s;
-            will-change: transform;
-            border-radius: 14px;
-            overflow: hidden;
-        }
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 10px 30px rgba(2,6,23,0.65);
-        }
-        .divider {
-            height:1px;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
-            margin: 1.25rem 0;
-        }
-        @media (max-width:640px){
-            .glass { padding: 1rem; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .bg-anim::before { animation: none; }
-        }
-        #particles {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-            pointer-events: none;
-            mix-blend-mode: screen;
-            opacity: 0.9;
-            filter: blur(.2px) saturate(120%);
-        }
-        .icon-wrap {
-            width:44px;height:44px;border-radius:10px;
-            display:inline-grid;place-items:center;
-            background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-            border: 1px solid rgba(255,255,255,0.04);
-        }
-    </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script>
+    (function (d) {
+      d.documentElement.className = d.documentElement.className.replace(/\bno-js\b/, 'js');
+      // Failsafe: if the page script never finishes, show everything anyway.
+      setTimeout(function () {
+        if (!(window.ERH && window.ERH.page)) d.documentElement.classList.add('reveal-all');
+      }, 3500);
+    })(document);
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "erhicaldc",
+      "alternateName": "erhicaldcDev",
+      "url": "https://erhicaldcdev.github.io/",
+      "jobTitle": "Software Developer",
+      "sameAs": ["https://github.com/erhicaldcDev"]
+    }
+  </script>
 </head>
 <body>
-<div id="app" class="relative min-h-screen">
-    <div class="bg-anim" aria-hidden="true">
-        <canvas id="particles"></canvas>
-    </div>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <div class="relative z-10 max-w-6xl mx-auto px-6 py-16">
-        <header class="glass p-6 rounded-2xl mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between">
-            <div class="flex items-center gap-4">
-                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-600 to-indigo-500 flex items-center justify-center shadow-lg">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <path d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8L12 2Z" fill="white" opacity="0.95"/>
-                    </svg>
-                </div>
-                <div>
-                    <h1 class="brand text-2xl sm:text-3xl">erhicaldcDev</h1>
-                    <p class="text-xs text-slate-200/70 mt-0.5">Software Developer & Systems Enthusiast</p>
-                </div>
+  <canvas class="gl" id="gl" aria-hidden="true"></canvas>
+  <div class="progress" data-progress aria-hidden="true"></div>
+
+  <header class="nav" data-nav-bar>
+    <div class="container nav__inner">
+      <a class="brand" href="#top" aria-label="erhicaldcDev, back to top">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <defs>
+            <radialGradient id="brand-orb" cx="38%" cy="32%" r="72%">
+              <stop offset="0" stop-color="#ede9fe"/>
+              <stop offset=".45" stop-color="#8b5cf6"/>
+              <stop offset="1" stop-color="#312e81"/>
+            </radialGradient>
+          </defs>
+          <g transform="rotate(-24 16 16)" fill="none" stroke="#22d3ee" stroke-width="1.6">
+            <path d="M2 16a14 4.6 0 0 1 28 0" opacity=".55"/>
+          </g>
+          <circle cx="16" cy="16" r="8.4" fill="url(#brand-orb)"/>
+          <g transform="rotate(-24 16 16)" fill="none" stroke="#22d3ee" stroke-width="1.6" stroke-linecap="round">
+            <path d="M2 16a14 4.6 0 0 0 28 0"/>
+          </g>
+        </svg>
+        <span>erhicaldc<b>Dev</b></span>
+      </a>
+
+      <nav aria-label="Primary">
+        <ul class="nav__links">
+          <li><a href="#about" data-nav="about">About</a></li>
+          <li><a href="#projects" data-nav="projects">Projects</a></li>
+          <li><a href="#terminal" data-nav="terminal">Terminal</a></li>
+          <li><a href="#contact" data-nav="contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav__actions">
+        <a class="icon-btn" href="https://github.com/erhicaldcDev" target="_blank" rel="noopener noreferrer" aria-label="erhicaldcDev on GitHub (opens in a new tab)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.73.5.75 5.48.75 11.75c0 5 3.25 9.24 7.76 10.74.57.1.76-.25.76-.54 0-.27-.01-1-.02-1.96-3.15.69-3.82-1.52-3.82-1.52-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.51-.28-5.16-1.26-5.16-5.6 0-1.24.44-2.26 1.17-3.06-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.17.91-.25 1.9-.37 2.88-.37.98 0 1.97.12 2.88.37 2.18-1.48 3.14-1.17 3.14-1.17.62 1.57.23 2.73.11 3.02.73.8 1.17 1.82 1.17 3.06 0 4.35-2.66 5.32-5.2 5.6.41.35.78 1.04.78 2.11 0 1.52-.01 2.74-.01 3.12 0 .29.19.64.77.53 4.5-1.5 7.75-5.74 7.75-10.74C23.25 5.48 18.27.5 12 .5z"/></svg>
+        </a>
+        <button class="icon-btn menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu"><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <nav aria-label="Mobile">
+      <ol>
+        <li style="--i:0"><a href="#about">About</a></li>
+        <li style="--i:1"><a href="#projects">Projects</a></li>
+        <li style="--i:2"><a href="#terminal">Terminal</a></li>
+        <li style="--i:3"><a href="#contact">Contact</a></li>
+      </ol>
+    </nav>
+    <p class="mobile-menu__foot">discord · azerbejdzanki<br>github.com/erhicaldcDev</p>
+  </div>
+
+  <div class="page">
+    <main id="main">
+
+      <!-- ============================== HERO ============================== -->
+      <section class="hero" id="top" data-section="hero" aria-labelledby="hero-title">
+        <div class="container hero__inner">
+          <div class="hero__content">
+            <p class="eyebrow" data-reveal style="--d:0"><span class="dot dot--pulse"></span>Software developer · Systems enthusiast</p>
+            <h1 class="hero__title" id="hero-title" data-reveal style="--d:1"><span data-scramble>erhicaldc</span><span class="accent" data-scramble>Dev</span></h1>
+            <p class="hero__lead" data-reveal style="--d:2">
+              I build software that sits close to the system: <strong>a source-based package manager</strong> for Linux From Scratch,
+              <strong>Windows optimization tooling</strong>, and <strong>a visual bot builder</strong> for Discord.
+            </p>
+            <div class="hero__cta" data-reveal style="--d:3">
+              <a class="btn btn--primary" href="#projects" data-magnetic>
+                Explore projects
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+              </a>
+              <a class="btn btn--ghost" href="#terminal" data-magnetic>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 17 6-5-6-5M12 19h8"/></svg>
+                Open the terminal
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="hero__foot">
+          <div class="container">
+            <a class="scroll-cue" href="#about"><span class="scroll-cue__mouse" aria-hidden="true"></span>Scroll</a>
+            <p class="live-chip"><span class="dot dot--pulse"></span>Rendering <b data-particle-count>0</b> particles live · <span data-webgl-version>WebGL</span></p>
+          </div>
+        </div>
+      </section>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <div class="marquee__group">
+            <span>C11</span><i>✦</i><span>libcurl</span><i>✦</i><span>cJSON</span><i>✦</i><span>GNU Make</span><i>✦</i>
+            <span>Linux From Scratch</span><i>✦</i><span>C#</span><i>✦</i><span>.NET 6</span><i>✦</i><span>PowerShell</span><i>✦</i>
+            <span>Windows 10 / 11</span><i>✦</i><span>Electron</span><i>✦</i><span>Monaco</span><i>✦</i><span>JavaScript</span><i>✦</i>
+            <span>Python</span><i>✦</i><span>Lua</span><i>✦</i><span>WebGL</span><i>✦</i>
+          </div>
+          <div class="marquee__group">
+            <span>C11</span><i>✦</i><span>libcurl</span><i>✦</i><span>cJSON</span><i>✦</i><span>GNU Make</span><i>✦</i>
+            <span>Linux From Scratch</span><i>✦</i><span>C#</span><i>✦</i><span>.NET 6</span><i>✦</i><span>PowerShell</span><i>✦</i>
+            <span>Windows 10 / 11</span><i>✦</i><span>Electron</span><i>✦</i><span>Monaco</span><i>✦</i><span>JavaScript</span><i>✦</i>
+            <span>Python</span><i>✦</i><span>Lua</span><i>✦</i><span>WebGL</span><i>✦</i>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================== ABOUT ============================== -->
+      <section class="section about" id="about" data-section="about" aria-labelledby="about-title">
+        <div class="container split">
+          <div class="split__aside" aria-hidden="true"><p class="fig-caption">fig. 00 · (2,3) torus knot</p></div>
+          <div class="split__main">
+            <p class="kicker" data-reveal>~/about</p>
+            <h2 class="section-title" id="about-title" data-reveal style="--d:1"><span data-scramble>Close to the metal.</span></h2>
+            <div class="about__text section-lead" data-reveal style="--d:2">
+              <p>
+                I'm <strong>erhicaldc</strong>, a software developer and systems enthusiast. I like the layers most people never look at:
+                how packages get fetched, resolved and compiled, how Windows can be tuned for games and low latency, and how
+                complicated logic can become something you wire together visually.
+              </p>
+              <p>
+                My projects span <strong>C11 on Linux From Scratch</strong>, <strong>.NET on Windows</strong> and
+                <strong>Electron on the desktop</strong>. Different stacks, same goal: fast, well-structured software.
+              </p>
             </div>
 
-            <nav class="mt-4 sm:mt-0 flex gap-3 items-center">
-                <a href="#fgo" class="text-sm px-3 py-2 rounded-md hover:bg-white/3 transition">FGO</a>
-                <a href="#nxpm" class="text-sm px-3 py-2 rounded-md hover:bg-white/3 transition">nxpm</a>
-                <a href="#botify" class="text-sm px-3 py-2 rounded-md hover:bg-white/3 transition">Botify</a>
-                <a href="https://github.com/erhicaldcDev" class="text-sm px-3 py-2 rounded-md bg-white/6 glass" target="_blank" rel="noopener noreferrer">GitHub</a>
-            </nav>
-        </header>
+            <ul class="caps">
+              <li class="cap glass spot" data-reveal style="--d:3">
+                <span class="cap__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg>
+                </span>
+                <h3>Systems</h3>
+                <p>C11, GNU Make, libcurl and cJSON. Source builds, staging roots and dependency graphs.</p>
+              </li>
+              <li class="cap glass spot" data-reveal style="--d:4">
+                <span class="cap__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="3.5" width="19" height="13" rx="2"/><path d="M8 21h8M12 16.5V21"/></svg>
+                </span>
+                <h3>Windows</h3>
+                <p>.NET 6 tooling, registry and system tweaks, PowerShell integrations.</p>
+              </li>
+              <li class="cap glass spot" data-reveal style="--d:5">
+                <span class="cap__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg>
+                </span>
+                <h3>Desktop apps</h3>
+                <p>Electron, the Monaco editor and node-based visual editors.</p>
+              </li>
+              <li class="cap glass spot" data-reveal style="--d:6">
+                <span class="cap__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-5 4 5 4M16 8l5 4-5 4M13.5 5l-3 14"/></svg>
+                </span>
+                <h3>Languages</h3>
+                <p>C, C#, JavaScript, Python and Lua.</p>
+              </li>
+            </ul>
 
-        <main class="space-y-8">
-            <section id="fgo" class="card glass p-6 md:p-8 bg-gradient-to-b from-[rgba(255,255,255,0.015)] to-transparent">
-                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                    <div class="flex gap-4 items-start">
-                        <div class="icon-wrap">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                <path d="M12 2c3.5 0 6.2 2.2 6.2 5.1 0 .8-.4 2.2-1.4 3.8-.8 1.3-1.9 2.8-3.5 4.4-1.6 1.6-3.1 2.7-4.4 3.5-1.6 1-3 .9-3.8 1.4C3 21.8 2 19.5 2 16 2 9.9 7.1 2 12 2z" fill="white" opacity="0.95"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <h2 class="text-xl font-semibold">fckingGoodOptimizer - DISCONTINUED !!!</h2>
-                            <p class="mt-1 text-sm text-slate-200/75 max-w-xl">
-                                Comprehensive Windows optimization toolbox focused on improving system performance, game experience and network responsiveness via advanced system tweaks and registry optimizations.
-                            </p>
-                            <div class="mt-3 flex gap-2 items-center text-xs">
-                                <span class="px-2 py-1 rounded-md bg-white/3">.NET 6</span>
-                                <span class="px-2 py-1 rounded-md bg-white/3">Windows 10/11</span>
-                                <span class="px-2 py-1 rounded-md bg-white/3">Active</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex gap-2">
-                        <a class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-indigo-500 text-white shadow hover:scale-[1.02] transition text-sm" href="https://github.com/erhicaldcDev/fckingGoodOptimizer" target="_blank" rel="noopener noreferrer">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 .5C5.73.5.75 5.48.75 11.75c0 5 3.25 9.24 7.76 10.74.57.1.76-.25.76-.54 0-.27-.01-1-.02-1.96-3.15.69-3.82-1.52-3.82-1.52-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.51-.28-5.16-1.26-5.16-5.6 0-1.24.44-2.26 1.17-3.06-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.17.91-.25 1.9-.37 2.88-.37.98 0 1.97.12 2.88.37 2.18-1.48 3.14-1.17 3.14-1.17.62 1.57.23 2.73.11 3.02.73.8 1.17 1.82 1.17 3.06 0 4.35-2.66 5.32-5.2 5.6.41.35.78 1.04.78 2.11 0 1.52-.01 2.74-.01 3.12 0 .29.19.64.77.53 4.5-1.5 7.75-5.74 7.75-10.74C23.25 5.48 18.27.5 12 .5z" fill="white"/></svg>
-                            View on GitHub
-                        </a>
-                    </div>
+            <a class="now glass spot" href="#botify" data-reveal style="--d:7">
+              <span class="dot dot--pulse"></span>
+              <span>Currently building <strong>Botify</strong>, a visual Discord bot maker.</span>
+              <span class="now__arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================== PROJECTS ============================== -->
+      <section id="projects" aria-labelledby="projects-title">
+        <div class="container projects-head">
+          <p class="kicker" data-reveal>~/projects</p>
+          <h2 class="section-title" id="projects-title" data-reveal style="--d:1"><span data-scramble>Selected work</span></h2>
+          <p class="section-lead" data-reveal style="--d:2">
+            Three projects from three different layers of the stack. Each one gets an emblem, drawn live by the particle engine behind this page.
+          </p>
+        </div>
+
+        <!-- Botify -->
+        <article class="project project--botify" id="botify" data-section="botify" aria-labelledby="botify-title">
+          <div class="container split split--flip">
+            <div class="split__aside" aria-hidden="true"><p class="fig-caption">fig. 01 · BVS node graph</p></div>
+            <div class="split__main">
+              <div class="project__card glass spot" data-reveal>
+                <div class="project__top">
+                  <span class="project__index">01</span>
+                  <span class="project__rule"></span>
+                  <span class="badge badge--live"><span class="dot dot--pulse"></span>In progress</span>
                 </div>
-            </section>
-
-            <section id="nxpm" class="card glass p-6 md:p-8 bg-gradient-to-b from-transparent to-[rgba(59,130,246,0.02)]">
-                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                    <div class="flex gap-4 items-start">
-                        <div class="icon-wrap">
-                            <svg width="20" height="20" viewBox="0 0 24 24" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-                        </div>
-                        <div>
-                            <h2 class="text-xl font-semibold">nxpm <span class="text-xs font-normal opacity-60 ml-2">NexaPackageManager</span></h2>
-                            <p class="mt-1 text-sm text-slate-200/75 max-w-xl">
-                                Minimalist, source-based package manager written in C11, specifically engineered for Linux From Scratch (LFS) environments. Automates fetching, dependency resolution, and compilation.
-                            </p>
-                            <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div class="text-xs space-y-1">
-                                    <p class="font-semibold text-purple-400">Core Architecture:</p>
-                                    <ul class="list-disc pl-4 text-slate-400">
-                                        <li>Staging-First logic (BUILD_ROOT)</li>
-                                        <li>Recursive dependency resolution</li>
-                                        <li>Atomic Deployment and file indexing</li>
-                                    </ul>
-                                </div>
-                                <div class="text-xs space-y-1">
-                                    <p class="font-semibold text-purple-400">Stack:</p>
-                                    <p class="text-slate-400">C11, libcurl, cJson, GNU Make</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex flex-col items-end gap-2">
-                        <a class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-indigo-500 text-white shadow hover:scale-[1.02] transition text-sm" href="https://github.com/erhicaldcDev/nxpm" target="_blank" rel="noopener noreferrer">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 .5C5.73.5.75 5.48.75 11.75c0 5 3.25 9.24 7.76 10.74.57.1.76-.25.76-.54 0-.27-.01-1-.02-1.96-3.15.69-3.82-1.52-3.82-1.52-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.51-.28-5.16-1.26-5.16-5.6 0-1.24.44-2.26 1.17-3.06-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.17.91-.25 1.9-.37 2.88-.37.98 0 1.97.12 2.88.37 2.18-1.48 3.14-1.17 3.14-1.17.62 1.57.23 2.73.11 3.02.73.8 1.17 1.82 1.17 3.06 0 4.35-2.66 5.32-5.2 5.6.41.35.78 1.04.78 2.11 0 1.52-.01 2.74-.01 3.12 0 .29.19.64.77.53 4.5-1.5 7.75-5.74 7.75-10.74C23.25 5.48 18.27.5 12 .5z" fill="white"/></svg>
-                            View on GitHub
-                        </a>
-                    </div>
+                <h3 class="project__title" id="botify-title"><span data-scramble>Botify</span></h3>
+                <p class="project__subtitle">Discord bot maker · Electron</p>
+                <p class="project__desc">
+                  An advanced Electron desktop app for building Discord bots. Design bot logic with
+                  <strong>Blueprint Visual Scripting (BVS)</strong>, a node-based graph editor, or switch to the integrated
+                  <strong>Monaco IDE</strong> for manual editing.
+                </p>
+                <ul class="features">
+                  <li class="feature">
+                    <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></svg></span>
+                    <div><h4>Multi-engine</h4><p>Generates code for JavaScript, Python and Lua environments.</p></div>
+                  </li>
+                  <li class="feature">
+                    <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="6" r="2.5"/><circle cx="5.5" cy="18" r="2.5"/><circle cx="18.5" cy="12" r="2.5"/><path d="M8 6c5 0 4 6 8 6M8 18c5 0 4-6 8-6"/></svg></span>
+                    <div><h4>Visual logic</h4><p>Node-based graph editor with custom bezier wires.</p></div>
+                  </li>
+                  <li class="feature">
+                    <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v5M15 2v5M6 7h12v4a6 6 0 0 1-12 0V7ZM12 17v5"/></svg></span>
+                    <div><h4>Plugin system</h4><p>Inject custom nodes, commands and integrations.</p></div>
+                  </li>
+                </ul>
+                <div class="project__meta">
+                  <ul class="tags" aria-label="Technologies">
+                    <li>Electron</li><li>Monaco</li><li>Node graph</li><li>JS · Python · Lua</li>
+                  </ul>
+                  <a class="btn btn--primary btn--sm" href="https://github.com/erhicaldcDev/Botify" target="_blank" rel="noopener noreferrer" data-magnetic>
+                    View on GitHub <span class="btn__arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span>
+                  </a>
                 </div>
-            </section>
+              </div>
+            </div>
+          </div>
+        </article>
 
-            <section id="botify" class="card glass p-6 md:p-8 bg-gradient-to-b from-transparent to-[rgba(124,58,237,0.03)]">
-                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                    <div class="flex gap-4 items-start">
-                        <div class="icon-wrap">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" y1="16" x2="8" y2="16"></line><line x1="16" y1="16" x2="16" y2="16"></line></svg>
-                        </div>
-                        <div>
-                            <h2 class="text-xl font-semibold">Botify <span class="text-xs font-normal opacity-60 ml-2">Discord Bot Maker</span></h2>
-                            <p class="mt-1 text-sm text-slate-200/75 max-w-xl">
-                                Advanced Electron-based desktop application. Design bot logic using Blueprint Visual Scripting (BVS) node-based graph editor or use the integrated Monaco IDE for manual editing.
-                            </p>
-                            <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
-                                <div class="p-3 rounded-lg bg-white/2 border border-white/5">
-                                    <p class="text-[11px] font-bold text-slate-400 uppercase">Multi-Engine</p>
-                                    <p class="text-xs mt-1">Generate code for JS, Python, and Lua environments.</p>
-                                </div>
-                                <div class="p-3 rounded-lg bg-white/2 border border-white/5">
-                                    <p class="text-[11px] font-bold text-slate-400 uppercase">Visual Logic</p>
-                                    <p class="text-xs mt-1">Node-based graph editor with custom bezier wires.</p>
-                                </div>
-                                <div class="p-3 rounded-lg bg-white/2 border border-white/5">
-                                    <p class="text-[11px] font-bold text-slate-400 uppercase">Plugin System</p>
-                                    <p class="text-xs mt-1">Inject custom nodes, commands, and integrations.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex flex-col items-end gap-2">
-                        <a class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-indigo-500 text-white shadow hover:scale-[1.02] transition text-sm" href="https://github.com/erhicaldcDev/Botify" target="_blank" rel="noopener noreferrer">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 .5C5.73.5.75 5.48.75 11.75c0 5 3.25 9.24 7.76 10.74.57.1.76-.25.76-.54 0-.27-.01-1-.02-1.96-3.15.69-3.82-1.52-3.82-1.52-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.51-.28-5.16-1.26-5.16-5.6 0-1.24.44-2.26 1.17-3.06-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.17.91-.25 1.9-.37 2.88-.37.98 0 1.97.12 2.88.37 2.18-1.48 3.14-1.17 3.14-1.17.62 1.57.23 2.73.11 3.02.73.8 1.17 1.82 1.17 3.06 0 4.35-2.66 5.32-5.2 5.6.41.35.78 1.04.78 2.11 0 1.52-.01 2.74-.01 3.12 0 .29.19.64.77.53 4.5-1.5 7.75-5.74 7.75-10.74C23.25 5.48 18.27.5 12 .5z" fill="white"/></svg>
-                            View on GitHub
-                        </a>
-                        <span class="text-[10px] text-amber-200/60 uppercase tracking-wider font-bold">In Progress</span>
-                    </div>
+        <!-- nxpm -->
+        <article class="project project--nxpm" id="nxpm" data-section="nxpm" aria-labelledby="nxpm-title">
+          <div class="container split">
+            <div class="split__aside" aria-hidden="true"><p class="fig-caption">fig. 02 · package, staged and deployed</p></div>
+            <div class="split__main">
+              <div class="project__card glass spot" data-reveal>
+                <div class="project__top">
+                  <span class="project__index">02</span>
+                  <span class="project__rule"></span>
+                  <span class="badge badge--info">C11 · LFS</span>
                 </div>
-            </section>
-
-            <footer id="github" class="glass p-8 rounded-2xl text-center">
-                <p class="text-sm font-medium">Need custom software or have a project idea?</p>
-                <p class="text-sm text-slate-400 mt-1">Reach out on Discord: <span class="text-purple-400 font-mono">azerbejdzanki</span></p>
-                <div class="mt-6 flex justify-center gap-4">
+                <h3 class="project__title" id="nxpm-title"><span data-scramble>nxpm</span></h3>
+                <p class="project__subtitle">NexaPackageManager</p>
+                <p class="project__desc">
+                  A minimalist, source-based package manager written in C11 and engineered specifically for
+                  <strong>Linux From Scratch</strong> environments. It automates fetching, dependency resolution and compilation.
+                </p>
+                <ol class="pipeline" aria-label="How a package moves through nxpm">
+                  <li style="--i:0">fetch<small>sources</small></li>
+                  <li style="--i:1">resolve<small>recursive</small></li>
+                  <li style="--i:2">build<small>BUILD_ROOT</small></li>
+                  <li style="--i:3">deploy<small>atomic</small></li>
+                  <li style="--i:4">index<small>files</small></li>
+                </ol>
+                <ul class="arch">
+                  <li><span>Staging-first logic: builds land in <code>BUILD_ROOT</code> first</span></li>
+                  <li><span>Recursive dependency resolution</span></li>
+                  <li><span>Atomic deployment and file indexing</span></li>
+                </ul>
+                <div class="project__meta">
+                  <ul class="tags" aria-label="Technologies">
+                    <li>C11</li><li>libcurl</li><li>cJSON</li><li>GNU Make</li>
+                  </ul>
+                  <a class="btn btn--primary btn--sm" href="https://github.com/erhicaldcDev/nxpm" target="_blank" rel="noopener noreferrer" data-magnetic>
+                    View on GitHub <span class="btn__arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span>
+                  </a>
                 </div>
-            </footer>
-        </main>
-    </div>
-</div>
+              </div>
+            </div>
+          </div>
+        </article>
 
-<script>
-    (() => {
-        const canvas = document.getElementById('particles');
-        const ctx = canvas.getContext('2d');
-        let w = canvas.width = innerWidth;
-        let h = canvas.height = innerHeight;
-        const particles = [];
-        const PARTICLE_COUNT = Math.min(90, Math.floor((w * h) / 70000));
-        const MAX_DIST = 140;
-        const mouse = { x: null, y: null, radius: 120 };
+        <!-- fckingGoodOptimizer -->
+        <article class="project project--fgo" id="fgo" data-section="fgo" aria-labelledby="fgo-title">
+          <div class="container split split--flip">
+            <div class="split__aside" aria-hidden="true"><p class="fig-caption">fig. 03 · tuned gear</p></div>
+            <div class="split__main">
+              <div class="project__card glass spot" data-reveal>
+                <div class="project__top">
+                  <span class="project__index">03</span>
+                  <span class="project__rule"></span>
+                  <span class="badge badge--archived">Discontinued</span>
+                </div>
+                <h3 class="project__title project__title--long" id="fgo-title"><span data-scramble>fckingGood&#8203;Optimizer</span></h3>
+                <p class="project__subtitle">Windows optimization toolbox · .NET 6</p>
+                <p class="project__desc">
+                  A comprehensive toolbox for Windows 10 and 11 focused on system performance, game experience and network
+                  responsiveness, applied through advanced system tweaks and registry optimizations.
+                </p>
+                <ul class="features">
+                  <li class="feature">
+                    <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></span>
+                    <div><h4>Performance tweaks</h4><p>GPU, RAM and SSD tuning, visual effect trims and power-plan adjustments.</p></div>
+                  </li>
+                  <li class="feature">
+                    <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12a4 4 0 0 1 4 4v1.5a3.5 3.5 0 0 1-3.5 3.5c-1.3 0-2-.7-3-2h-7c-1 1.3-1.7 2-3 2A3.5 3.5 0 0 1 2 13.5V12a4 4 0 0 1 4-4Z"/><path d="M7.5 10.5v3M6 12h3M15.5 12h.01M17.5 11h.01"/></svg></span>
+                    <div><h4>Gaming optimizations</h4><p>Game Mode setup, fullscreen optimizations, DirectX and overlay tweaks.</p></div>
+                  </li>
+                  <li class="feature">
+                    <span class="feature__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"/></svg></span>
+                    <div><h4>Network enhancements</h4><p>DNS tuning, IPv6 tweaks and TCP/IP stack fine-tuning to reduce latency.</p></div>
+                  </li>
+                </ul>
+                <p class="project__note">No longer maintained. The repository stays up for reference; create a system restore point before trying any system-level tweak.</p>
+                <div class="project__meta">
+                  <ul class="tags" aria-label="Technologies">
+                    <li>.NET 6</li><li>Windows 10 / 11</li><li>Registry</li><li>PowerShell</li>
+                  </ul>
+                  <a class="btn btn--ghost btn--sm" href="https://github.com/erhicaldcDev/fckingGoodOptimizer" target="_blank" rel="noopener noreferrer" data-magnetic>
+                    View on GitHub <span class="btn__arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
 
-        window.addEventListener('mousemove', e => { mouse.x = e.x; mouse.y = e.y; });
-        function rand(min, max) { return Math.random() * (max - min) + min; }
-        function makeParticles() {
-            particles.length = 0;
-            for (let i = 0; i < PARTICLE_COUNT; i++) {
-                particles.push({ x: rand(0, w), y: rand(0, h), vx: rand(-0.2, 0.2), vy: rand(-0.2, 0.2), r: rand(0.6, 1.5) });
-            }
-        }
-        function resize() { w = canvas.width = innerWidth; h = canvas.height = innerHeight; makeParticles(); }
-        window.addEventListener('resize', resize);
+      <!-- ============================== TERMINAL ============================== -->
+      <section class="section terminal-section" id="terminal" data-section="terminal" aria-labelledby="terminal-title">
+        <div class="container split split--flip">
+          <div class="split__aside" aria-hidden="true"><p class="fig-caption">shape output renders here</p></div>
+          <div class="split__main">
+            <p class="kicker" data-reveal>~/terminal</p>
+            <h2 class="section-title" id="terminal-title" data-reveal style="--d:1"><span data-scramble>Talk to the machine</span></h2>
+            <p class="section-lead" data-reveal style="--d:2">
+              A tiny shell running in your browser. It lists projects, fakes an <code>nxpm</code> install and drives the particle engine behind this page.
+            </p>
 
-        function update() {
-            ctx.clearRect(0, 0, w, h);
-            particles.forEach(p => {
-                p.x += p.vx; p.y += p.vy;
-                if (p.x < 0 || p.x > w) p.vx *= -1;
-                if (p.y < 0 || p.y > h) p.vy *= -1;
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(255,255,255,0.08)';
-                ctx.fill();
-            });
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const a = particles[i], b = particles[j];
-                    const dx = a.x - b.x, dy = a.y - b.y, d = Math.sqrt(dx*dx + dy*dy);
-                    if (d < MAX_DIST) {
-                        ctx.beginPath();
-                        ctx.moveTo(a.x, a.y);
-                        ctx.lineTo(b.x, b.y);
-                        ctx.strokeStyle = `rgba(124,58,237,${0.12 * (1 - d/MAX_DIST)})`;
-                        ctx.stroke();
-                    }
-                }
-            }
-            requestAnimationFrame(update);
-        }
-        resize(); update();
-    })();
-</script>
+            <div class="term glass" data-term data-reveal style="--d:3">
+              <div class="term__bar" aria-hidden="true">
+                <span class="term__dots"><i></i><i></i><i></i></span>
+                <span class="term__title">guest@erhicaldc: ~</span>
+                <span class="term__tag">ersh</span>
+              </div>
+              <div class="term__body" data-term-body>
+                <div class="term__out" data-term-out role="log" aria-live="polite" aria-relevant="additions" aria-label="Terminal output"></div>
+                <form class="term__line" data-term-form autocomplete="off">
+                  <label class="term__prompt" for="term-input"><span class="t-user">guest@erhicaldc</span><span class="t-dim">:</span><span class="t-path">~</span><span class="t-dim">$ </span><span class="sr-only">Terminal command</span></label>
+                  <input class="term__input" id="term-input" data-term-input type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="send">
+                </form>
+              </div>
+            </div>
+
+            <div class="chips" data-reveal style="--d:4">
+              <button class="chip" type="button" data-cmd="help">help</button>
+              <button class="chip" type="button" data-cmd="neofetch">neofetch</button>
+              <button class="chip" type="button" data-cmd="shape galaxy">shape galaxy</button>
+              <button class="chip" type="button" data-cmd="text hello">text hello</button>
+              <button class="chip" type="button" data-cmd="nxpm install coffee">nxpm install coffee</button>
+              <button class="chip" type="button" data-cmd="hyper">hyper</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================== CONTACT ============================== -->
+      <section class="section contact" id="contact" data-section="contact" aria-labelledby="contact-title">
+        <div class="container contact__inner">
+          <p class="kicker" data-reveal>~/contact</p>
+          <h2 class="contact__title" id="contact-title" data-reveal style="--d:1"><span data-scramble>Let's build</span> <span class="grad" data-scramble>something.</span></h2>
+          <p class="contact__lead" data-reveal style="--d:2">
+            Need custom software or have a project idea? The fastest way to reach me is a message on Discord.
+          </p>
+          <div class="contact__actions" data-reveal style="--d:3">
+            <button class="handle" type="button" data-copy="azerbejdzanki" aria-label="Copy Discord username azerbejdzanki">
+              <span class="handle__label">Discord</span>
+              <span class="handle__value">azerbejdzanki</span>
+              <span class="handle__copy" aria-hidden="true">
+                <span class="when-idle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg></span>
+                <span class="when-idle">Copy</span>
+                <span class="when-copied"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+                <span class="when-copied">Copied</span>
+              </span>
+            </button>
+            <a class="btn btn--ghost" href="https://github.com/erhicaldcDev" target="_blank" rel="noopener noreferrer" data-magnetic>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.73.5.75 5.48.75 11.75c0 5 3.25 9.24 7.76 10.74.57.1.76-.25.76-.54 0-.27-.01-1-.02-1.96-3.15.69-3.82-1.52-3.82-1.52-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.51-.28-5.16-1.26-5.16-5.6 0-1.24.44-2.26 1.17-3.06-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.14 1.17.91-.25 1.9-.37 2.88-.37.98 0 1.97.12 2.88.37 2.18-1.48 3.14-1.17 3.14-1.17.62 1.57.23 2.73.11 3.02.73.8 1.17 1.82 1.17 3.06 0 4.35-2.66 5.32-5.2 5.6.41.35.78 1.04.78 2.11 0 1.52-.01 2.74-.01 3.12 0 .29.19.64.77.53 4.5-1.5 7.75-5.74 7.75-10.74C23.25 5.48 18.27.5 12 .5z"/></svg>
+              GitHub <span class="btn__arrow" aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span>
+            </a>
+          </div>
+          <p class="contact__note" data-reveal style="--d:4">psst: press <kbd>`</kbd> for render stats, or try the Konami code.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <p>© <span data-year>2026</span> erhicaldcDev · Hand-written WebGL, zero frameworks.</p>
+        <div class="footer__links">
+          <button class="linklike" type="button" data-hud-toggle>Render stats</button>
+          <a href="https://github.com/erhicaldcDev" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="#top">Back to top ↑</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <nav class="rail" aria-label="Sections">
+    <ol>
+      <li><a href="#top" data-rail="hero"><span>Intro</span></a></li>
+      <li><a href="#about" data-rail="about"><span>About</span></a></li>
+      <li><a href="#botify" data-rail="botify"><span>Botify</span></a></li>
+      <li><a href="#nxpm" data-rail="nxpm"><span>nxpm</span></a></li>
+      <li><a href="#fgo" data-rail="fgo"><span>Optimizer</span></a></li>
+      <li><a href="#terminal" data-rail="terminal"><span>Terminal</span></a></li>
+      <li><a href="#contact" data-rail="contact"><span>Contact</span></a></li>
+    </ol>
+  </nav>
+
+  <p class="scene-label" aria-hidden="true"><span class="scene-label__diamond"></span>scene <b data-scene-name>orb</b> · <span data-particle-count>0</span> particles</p>
+  <div class="hud" id="hud" hidden aria-hidden="true"></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/js/shapes.js" defer></script>
+  <script src="assets/js/gl.js" defer></script>
+  <script src="assets/js/scene.js" defer></script>
+  <script src="assets/js/terminal.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
